@@ -1,6 +1,11 @@
 import pandas as pd
 import numpy as np
 
+
+"""
+Series Exercise
+"""
+
 # Create create and display a one-dimensional array-like object containing an array of data using Pandas module.
  
 # test_array =  pd.array([1,2,3])
@@ -163,4 +168,127 @@ import numpy as np
 # input = pd.Series(['Jan 2015', 'Feb 2016', 'Mar 2017', 'Apr 2018', 'May 2019'])
 
 
+"""
+DataFrame Exercise
+"""
+
+#  to get the first 3 rows of a given DataFrame.
+
+exam_data = {
+'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
+'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
+'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
+
+labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+
+
+df = pd.DataFrame(exam_data, index=labels)
+
+# print(df[0:3])
+
+# to select the 'name' and 'score' columns from the following DataFrame.
+
+# print(df.iloc[:,[0,1]])
+
+
+# to select the specified columns and rows from a given data frame.
+# which are score and qualify
+
+# print(df.loc[:,['score','qualify']])
+
+
+# to select the rows where the number of attempts in the examination is greater than 2.
+
+# print(df[df['attempts'] > 2])
+
+# to count the number of rows and columns of a DataFrame.
+
+# print(df.shape)  also len(axes[0]) -> rows & len(axes[1]) -> cols
+
+# to select the rows where the score is missing, i.e. is NaN.
+
+# print(df[df['score'].isna()])
+
+# to select the rows the score is between 15 and 20 (inclusive).
+
+# print(df[(df['score']>=15) & (df['score'] <=20)])
+
+# to select the rows where number of attempts in the examination is less than 2 and score greater than 15.
+
+# print(df[(df['attempts'] < 2) & (df['score'] > 15)])
+
+#  to change the score in row 'd' to 11.5.
+
+# df.loc['d','score'] = 11.5
+
+# to calculate the sum of the examination attempts by the students.
+
+# print(df.attempts.sum())
+
+#  to calculate the mean of all students' scores. Data is stored in a dataframe.
+
+# print(df.score.mean())
+
+# to append a new row 'k' to data frame with given values for each column. Now delete the new row and return the original DataFrame.
+
+# df.loc['k'] = ["Suresh",  15.5,  1,  "yes",]
+
+# df = df.drop('k')
+
+# print(df)
+
+# to sort the DataFrame first by 'name' in descending order, then by 'score' in ascending order. 
+
+# df = df.sort_values(['name','score'], ascending=[False, True])
+
+# print(df)
+
+# to replace the 'qualify' column contains the values 'yes' and 'no' with True and False.
+
+# df['qualify'] = df['qualify'].map({'yes':True,'no':False})
+
+
+# to change the name 'James' to 'Suresh' in name column of the DataFrame.
+
+# df['name'] = df['name'].replace('James','Suresh')
+
+# to delete the 'attempts' column from the DataFrame.
+
+# df = df.drop(columns=['attempts'])
+
+# to insert a new column in existing DataFrame.
+
+# color = ['Red','Blue','Orange','Red','White','White','Blue','Green','Green','Red']
+
+# df['color'] = color
+
+# to iterate over rows in a DataFrame.
+
+# for index,row in df.iterrows():
+    # print(row['name'], row['score'])
+
+#  to get list from DataFrame column headers.
+
+# print(df.columns.tolist())
+
+# to rename columns of a given DataFrame
+
+# df.columns = [1,'pesho',3,4]
+
+#  to select rows from a given DataFrame based on values in some columns.
+
+sample = pd.DataFrame({'col1': [1, 4, 3, 4, 5], 'col2': [4, 5, 6, 7, 8], 'col3': [7, 8, 9, 0, 1]})
+
+# print(sample[sample['col1'] == 4])
+
+#  to reverse the order of a DataFrame columns.
+
+# sample.columns = sample.columns.tolist()[::-1]
+
+#  to add one row in an existing DataFrame.
+
+# df2 = {'col1': 10, 'col2': 11, 'col3': 12}
+# sample = sample._append(df2, ignore_index=True)
 
