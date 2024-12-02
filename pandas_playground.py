@@ -174,17 +174,17 @@ DataFrame Exercise
 
 #  to get the first 3 rows of a given DataFrame.
 
-exam_data = {
-'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
-'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
-'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
-'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
+# exam_data = {
+# 'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+# 'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
+# 'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
+# 'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
 
-labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+# labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 
 
 
-df = pd.DataFrame(exam_data, index=labels)
+# df = pd.DataFrame(exam_data, index=labels)
 
 # print(df[0:3])
 
@@ -279,7 +279,7 @@ df = pd.DataFrame(exam_data, index=labels)
 
 #  to select rows from a given DataFrame based on values in some columns.
 
-sample = pd.DataFrame({'col1': [1, 4, 3, 4, 5], 'col2': [4, 5, 6, 7, 8], 'col3': [7, 8, 9, 0, 1]})
+# sample = pd.DataFrame({'col1': [1, 4, 3, 4, 5], 'col2': [4, 5, 6, 7, 8], 'col3': [7, 8, 9, 0, 1]})
 
 # print(sample[sample['col1'] == 4])
 
@@ -292,3 +292,155 @@ sample = pd.DataFrame({'col1': [1, 4, 3, 4, 5], 'col2': [4, 5, 6, 7, 8], 'col3':
 # df2 = {'col1': 10, 'col2': 11, 'col3': 12}
 # sample = sample._append(df2, ignore_index=True)
 
+# df1 = pd.DataFrame({'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas',],
+# 'city': ['California', 'Los Angeles', 'California', 'California', 'California', 'Los Angeles', 'Los Angeles', 'Georgia', 'Georgia', 'Los Angeles']})
+
+# print(df1.groupby('city').size().reset_index(name='number of people'))
+
+# to delete DataFrame row(s) based on given column value.
+
+# sample = sample[sample.col2 != 5]
+
+# to widen output display to see more columns.
+
+# pd.set_option('display.max_rows', 500)
+# pd.set_option('display.max_columns', 500)
+# pd.set_option('display.width', 1000)
+
+
+#  to select a row of series/dataframe by given integer index.
+
+# print(sample.iloc[2])
+
+# to replace all the NaN values with Zero's in a column of a dataframe.
+
+# df.score =  df.score.fillna(0)
+
+# to convert index in a column of the given dataframe.
+
+# create a col from the index
+# df.reset_index(level=0, inplace=True)
+
+#hide
+# df =  df.to_string(index=False)
+
+# to set a given value for particular cell in  DataFrame using index value.
+
+# df.iloc[0,0] = 'pesho'
+
+
+# to count the NaN values in one or more columns in DataFrame.
+
+
+# print(df.isnull().values.sum())
+
+# to drop a list of rows from a specified DataFrame.
+
+# print(sample)
+
+# sample.drop(labels=[2,4],inplace=True)
+
+# print(sample)
+
+
+# df.drop(index=['a','b'],inplace=True)
+
+# df = df.reset_index()
+
+# to combining two series into a DataFrame.
+
+# s1 = pd.Series(['100', '200', 'python', '300.12', '400'])
+# s2 = pd.Series(['10', '20', 'php', '30.12', '40'])
+
+# df_from_series = pd.concat([s1,s2],axis=1)
+
+# print(df_from_series)
+
+# to shuffle a given DataFrame rows.
+
+# df =  df.sample(frac=1)
+
+# sample = sample.rename(columns={'col2':'pesho'}) 
+
+
+# 43. Write a Pandas program to get a list of a specified column of a DataFrame.
+
+# print(sample.loc[:,'col2'].tolist())
+
+# to create a DataFrame from a Numpy array and specify the index column and column headers.
+
+# zeros = np.zeros((15,3))
+
+# print(pd.DataFrame(zeros))
+
+#  to find the row for where the value of a given column is maximum.
+
+# example = pd.DataFrame({'col1': [1, 2, 3, 4, 7], 'col2': [4, 5, 6, 9, 5]})
+
+# print(example[example.col1 == example.col1.max()].index)
+
+
+# to check whether a given column is present in a DataFrame or not.
+
+# print('test' in df.columns)
+
+#  to get the specified row value of a given DataFrame.
+
+# print(example.iloc[3])
+
+
+# to get the datatypes of columns of a DataFrame.
+
+
+# print(example.dtypes)
+
+# example.insert(loc=0, column='col3', value=[7, 8, 12, 1, 11])
+
+# to convert a given list of lists into a Dataframe.
+
+# matrix = [[2, 4], [1, 3]]
+
+# print(pd.DataFrame(matrix))
+
+#  to group by the first column and get second column as lists in rows
+
+# df = pd.DataFrame( {'col1':['C1','C1','C2','C2','C2','C3','C2'], 'col2':[1,2,3,3,4,6,5]})
+
+# c4 = df.groupby('col1')['col2'].apply(list)
+
+# print(c4)
+
+
+# 56. Write a Pandas program to get column index from column name of a given DataFrame.
+
+d = {'col1': [1, 2, 3, 4, 7], 'col2': [4, 5, 6, 9, 5], 'col3': [7, 8, 12, 1, 11]}
+df = pd.DataFrame(data=d)
+
+# print(df.columns.get_loc('col2'))
+
+#  to count number of columns of a DataFrame.
+
+# print(len(df.columns.to_list()))
+
+
+# to select all columns, except one given column in a DataFrame.
+
+# print(df.loc[:, df.columns != 'col3'])
+
+# to get first n records of a DataFrame.
+
+# df.head(n)
+
+# 60. Write a Pandas program to get last n records of a DataFrame.
+
+# df.tail(n)
+
+# df = df.iloc[3:]
+
+# df= df.add_prefix('1')
+
+# df= df.add_prefix('pesho')
+
+# reverse rows
+
+# df = df[::-1]
