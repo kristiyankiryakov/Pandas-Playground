@@ -413,8 +413,8 @@ DataFrame Exercise
 
 # 56. Write a Pandas program to get column index from column name of a given DataFrame.
 
-d = {'col1': [1, 2, 3, 4, 7], 'col2': [4, 5, 6, 9, 5], 'col3': [7, 8, 12, 1, 11]}
-df = pd.DataFrame(data=d)
+# d = {'col1': [1, 2, 3, 4, 7], 'col2': [4, 5, 6, 9, 5], 'col3': [7, 8, 12, 1, 11]}
+# df = pd.DataFrame(data=d)
 
 # print(df.columns.get_loc('col2'))
 
@@ -444,3 +444,79 @@ df = pd.DataFrame(data=d)
 # reverse rows
 
 # df = df[::-1]
+
+"""
+Index Exercises
+"""
+
+#1. Write a Pandas program to display the default index and set a column as an Index in a given dataframe.
+
+df = pd.DataFrame({
+    'school_code': ['s001','s002','s003','s001','s002','s004'],
+    'class': ['V', 'V', 'VI', 'VI', 'V', 'VI'],
+    'name': ['Alberto Franco','Gino Mcneill','Ryan Parkes', 'Eesha Hinton', 'Gino Mcneill', 'David Parkes'],
+    'date_Of_Birth': ['15/05/2002','17/05/2002','16/02/1999','25/09/1998','11/05/2002','15/09/1997'],
+    'weight': [35, 32, 33, 30, 31, 32],
+    'address': ['street1', 'street2', 'street3', 'street1', 'street2', 'street4'],
+    't_id': ['t1', 't2', 't3', 't4', 't5', 't6']
+    })
+
+# print(df.head(10))
+
+# df = df.set_index('school_code')
+
+# print(df.head(10))
+
+#2. Write a Pandas program to create a multi Index frame using two columns and using an Index and a column.
+
+
+# df = df.set_index(['school_code','t_id'])
+
+# df = df.set_index('t_id',append=True)
+
+
+#3. Write a Pandas program to display the default index and set a column as an Index in a given dataframe and then reset the index.
+
+# df.set_index('t_id').reset_index()
+
+#4. Write a Pandas program to create an index labels by using 64-bit integers, using floating-point numbers in a given dataframe.
+
+
+# df= df.set_index(np.random.rand(6).astype('float64'))
+
+# 5. Write a Pandas program to create a DataFrame using intervals as an index.
+
+# df.index = pd.IntervalIndex.from_breaks([0, 0.5, 1.0, 1.5, 2.0, 2.5, 3])
+
+#7. Write a Pandas program to create a dataframe and set a title or name of the index column.
+
+# df.index.name = 'pesho'
+
+#8. Write a Pandas program to set value in a specific cell in a given dataframe using index.
+
+# df.iloc[0,3] = 'gosho'
+
+#9. Write a Pandas program to convert index of a given dataframe into a column.
+
+# df.set_index('t_id', inplace=True)
+
+# df = df.reset_index(level=0)
+
+#10. Write a Pandas program to convert 1st and 3rd levels in the index into columns from a multiple level of index frame of a given dataframe.
+
+# df = df.set_index(['t_id', 'school_code', 'class'])
+
+# df.reset_index(level=['t_id','class'],inplace=True)
+
+#11. Write a Pandas program to check if a specified value exists in single and multiple column index dataframe.
+
+# print('c6' in df.index)
+# print('t1' in df.index)
+
+# df.set_index(['school_code','class','t_id'],append=True,inplace=True)
+
+# print('V' in df.index.levels[2])
+
+#15
+
+

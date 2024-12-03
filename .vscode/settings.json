@@ -1,11 +1,13 @@
 {
     "cSpell.words": [
+        "dataframe",
         "dateutil",
         "iloc",
         "isna",
         "itemsize",
         "moveaxis",
         "setdiff",
+        "swaplevel",
         "TSLA"
     ]
 }
