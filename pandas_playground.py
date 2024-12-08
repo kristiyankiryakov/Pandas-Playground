@@ -451,15 +451,15 @@ Index Exercises
 
 #1. Write a Pandas program to display the default index and set a column as an Index in a given dataframe.
 
-df = pd.DataFrame({
-    'school_code': ['s001','s002','s003','s001','s002','s004'],
-    'class': ['V', 'V', 'VI', 'VI', 'V', 'VI'],
-    'name': ['Alberto Franco','Gino Mcneill','Ryan Parkes', 'Eesha Hinton', 'Gino Mcneill', 'David Parkes'],
-    'date_Of_Birth': ['15/05/2002','17/05/2002','16/02/1999','25/09/1998','11/05/2002','15/09/1997'],
-    'weight': [35, 32, 33, 30, 31, 32],
-    'address': ['street1', 'street2', 'street3', 'street1', 'street2', 'street4'],
-    't_id': ['t1', 't2', 't3', 't4', 't5', 't6']
-    })
+# df = pd.DataFrame({
+#     'school_code': ['s001','s002','s003','s001','s002','s004'],
+#     'class': ['V', 'V', 'VI', 'VI', 'V', 'VI'],
+#     'name': ['Alberto Franco','Gino Mcneill','Ryan Parkes', 'Eesha Hinton', 'Gino Mcneill', 'David Parkes'],
+#     'date_Of_Birth': ['15/05/2002','17/05/2002','16/02/1999','25/09/1998','11/05/2002','15/09/1997'],
+#     'weight': [35, 32, 33, 30, 31, 32],
+#     'address': ['street1', 'street2', 'street3', 'street1', 'street2', 'street4'],
+#     't_id': ['t1', 't2', 't3', 't4', 't5', 't6']
+#     })
 
 # print(df.head(10))
 
@@ -517,6 +517,61 @@ df = pd.DataFrame({
 
 # print('V' in df.index.levels[2])
 
-#15
 
+"""
+Advanced Indexing and Slicing
+"""
 
+#
+
+#1.Write a Pandas program to select rows where the value in the 'A' column is greater than 4.
+
+# df = pd.DataFrame({
+#     'A': [1, 6, 8, 3, 7],
+#     'B': [5, 2, 9, 4, 1]
+# })
+
+# bigger_thank_4_mask = df['A'] > 4
+
+# print(df[bigger_thank_4_mask])
+
+#2. Write a Pandas program to select only the 'X' and 'Y' columns from the DataFrame.
+
+# df = pd.DataFrame({
+#     'X': [1, 6, 8, 3, 7],
+#     'Y': [5, 2, 9, 4, 1],
+#     'Z': [3, 8, 6, 2, 9]
+# })
+
+# result = df[['X', 'Y']]
+
+#3.Write a Pandas program to set a MultiIndex and access specific data using it.
+# df = pd.DataFrame({
+#     'X': [1, 6, 8, 3, 7],
+#     'Y': [5, 2, 9, 4, 1],
+#     'Z': ['one', 'one', 'two', 'two', 'one']
+# })
+
+# df = df.set_index(['Z','X'])
+# print(df)
+# print(df.loc[('one', 1)])
+
+#4.Write a Pandas program to use .loc to select rows based on a condition.
+
+# df = pd.DataFrame({
+#     'P': [1, 6, 8, 3, 7],
+#     'Q': [5, 2, 9, 4, 1]
+# })
+
+# print(df.loc[df['P']>4])
+
+#5.Write a Pandas program that uses .loc to set values in the DataFrame.
+
+# df = pd.DataFrame({
+#     'X': [1, 6, 8, 3, 7],
+#     'Y': [5, 2, 9, 4, 1]
+# })
+
+# df.loc[2,'X'] = 9999
+
+# print(df)
